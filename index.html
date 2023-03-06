@@ -8,31 +8,34 @@
 </head>
 <body>
     <script>
-        // switch (choice){
-        //     case 1:
-        //         return "Rock";
-
-        //     case 2:
-        //         return "Paper";
-
-        //     case 3:
-        //         return "Scissors";
-        //    }
+        
 
         function getComputer (){
-            let choice = (Math.floor(Math.random()*3) + 1);
-           
+            return (Math.floor(Math.random()*3) + 1);
+
+        }
+
+        function computerChoiceToString (){
+
+            switch (getComputer()){
+
+                case 1:
+                    return "Rock";
+
+                case 2:
+                    return "Paper";
+
+                case 3:
+                    return "Scissors";
+
+           }
+
         }
 
         function playerSelection (){
            return prompt("Enter Your Choice", "Rock");
         }
-
-        let computerChoice =  getComputer().toUpperCase();
-        let playerChoice = playerSelection().toUpperCase();
-        let playerNum = choiceToNum();
-        let computerNum = getComputer();
-        
+      
         function choiceToNum(playerChoice){
 
             switch (playerChoice){
@@ -81,6 +84,21 @@
 
             }
         }
+
+        function game (){
+
+            for (let i = 0; i < 5; i++){
+
+                let computerChoice =  computerChoiceToString().toUpperCase();
+                let playerChoice = playerSelection().toUpperCase();
+                let playerNum = choiceToNum();
+                let computerNum = getComputer();
+
+                result();
+            }
+            
+        }
+        
 
 
     </script>
