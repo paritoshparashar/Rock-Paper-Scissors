@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // switch (choice){
+        //     case 1:
+        //         return "Rock";
+
+        //     case 2:
+        //         return "Paper";
+
+        //     case 3:
+        //         return "Scissors";
+        //    }
+
+        function getComputer (){
+            let choice = (Math.floor(Math.random()*3) + 1);
+           
+        }
+
+        function playerSelection (){
+           return prompt("Enter Your Choice", "Rock");
+        }
+
+        let computerChoice =  getComputer().toUpperCase();
+        let playerChoice = playerSelection().toUpperCase();
+        let playerNum = choiceToNum();
+        let computerNum = getComputer();
+        
+        function choiceToNum(playerChoice){
+
+            switch (playerChoice){
+
+                case "ROCK":
+                    return 1;
+                
+                case "PAPER": 
+                    return 2;
+
+                case "SCISSORS":
+                    return 3;    
+            }
+
+        }
+                
+        function result (playerNum, computerNum){
+            if ((playerNum*computerNum) !== 3){
+
+                switch (true) {
+
+                    case (playerNum > computerNum):
+                        return "Win";
+
+                    case (playerChoice < computerNum):
+                        return "Lose";
+
+                    default:
+                        return "Tie";
+                }
+            } 
+
+            else {
+
+                switch (true) {
+
+                    case (playerChoice < computerChoice):
+                        return "Win";
+
+                    case (playerChoice > computerChoice):
+                        return "Lose";
+                    
+                    default:
+                        return "Tie";
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+</html>
