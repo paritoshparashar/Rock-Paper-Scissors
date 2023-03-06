@@ -15,9 +15,9 @@
 
         }
 
-        function computerChoiceToString (){
+        function computerChoiceToString (computerNum){
 
-            switch (getComputer()){
+            switch (computerNum){
 
                 case 1:
                     return "Rock";
@@ -60,7 +60,7 @@
                     case (playerNum > computerNum):
                         return "Win";
 
-                    case (playerChoice < computerNum):
+                    case (playerNum < computerNum):
                         return "Lose";
 
                     default:
@@ -72,10 +72,10 @@
 
                 switch (true) {
 
-                    case (playerChoice < computerChoice):
+                    case (playerNum < computerChoice):
                         return "Win";
 
-                    case (playerChoice > computerChoice):
+                    case (playerNum > computerChoice):
                         return "Lose";
                     
                     default:
@@ -89,16 +89,23 @@
 
             for (let i = 0; i < 5; i++){
 
-                let computerChoice =  computerChoiceToString().toUpperCase();
-                let playerChoice = playerSelection().toUpperCase();
-                let playerNum = choiceToNum();
                 let computerNum = getComputer();
+                let computerChoice =  computerChoiceToString(computerNum).toUpperCase();
+                let playerChoice = playerSelection().toUpperCase();
+                let playerNum = choiceToNum(playerChoice);
+                
 
-                result();
+                console.log(result(playerNum, computerNum));
             }
             
         }
+
+        let computerChoice;
+        let playerChoice;
+        let playerNum;
+        let computerNum;
         
+        game();
 
 
     </script>
