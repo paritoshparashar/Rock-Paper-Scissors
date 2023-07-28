@@ -24,7 +24,7 @@ function showPlayerImage (choice){
             break;
 
         default:
-            imageConatiner.src = "" 
+            imageConatiner.src = "images/rock.png" 
             break;
     }
 }
@@ -174,6 +174,6 @@ let scorePlayer = 0
 let scoreComputer = 0;
 
 
-(scorePlayer > scoreComputer) ? console.log("You WIN"): console.log("You LOSE");
+//(scorePlayer > scoreComputer) ? console.log("You WIN"): console.log("You LOSE");
 
 
