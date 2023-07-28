@@ -157,10 +157,19 @@ function game (){
             ++scoreComputer;
          }// store this in an array/ or rather keep a score instead of printing it
 
-         console.log(results);
-
-        
+         console.log(results);      
     
+}
+
+function startGame (){
+
+    document.getElementById('rock').disabled = false;
+    document.getElementById('paper').disabled = false;
+    document.getElementById('scissor').disabled = false;
+    document.getElementById('start').disabled = true;
+
+    
+
 }
 
 let cimputerCoice;
@@ -172,7 +181,10 @@ let previousNumber = null;
 let newNumber = null;
 let scorePlayer = 0
 let scoreComputer = 0;
-
+let bestOf = 0;
+document.getElementById('rock').disabled = true;
+document.getElementById('paper').disabled = true;
+document.getElementById('scissor').disabled = true;
 
 //(scorePlayer > scoreComputer) ? console.log("You WIN"): console.log("You LOSE");
 
