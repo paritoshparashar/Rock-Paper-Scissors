@@ -4,137 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="images">
+        <div class="playerImg">
+            <img id="final-image-player" src="" alt="">
+        </div>
+        <div class="compImg">
+            <img id="final-image-computer" src="" alt="">
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="makeChoice(this.value)" value="rock">Rock</button>
+        <button onclick="makeChoice(this.value)" value="paper">Paper</button>
+        <button onclick="makeChoice(this.value)" value="scissor">Scissors</button>
+    </div>
     
 </body>
 
-<script>
-        
-
-        function getComputer (){
-
-            newNumber = Math.ceil(Math.random() * 3);
-
-            while (newNumber === previousNumber) {
-                randomNumber = Math.ceil(Math.random() * 3);
-            }
-
-            // Update the previousRandomNumber with the current one
-            previousNumber = newNumber;
-            return newNumber;
-
-        }
-
-        function computerChoiceToString (computerNum){
-
-            switch (computerNum){
-
-                case 1:
-                    return "Rock";
-
-                case 2:
-                    return "Paper";
-
-                case 3:
-                    return "Scissors";
-
-           }
-
-        }
-
-        function playerSelection (){
-           return prompt("Enter Your Choice", "Rock");
-        }
-      
-        function choiceToNum(playerChoice){
-
-            switch (playerChoice){
-
-                case "ROCK":
-                    return 1;
-                
-                case "PAPER": 
-                    return 2;
-
-                case "SCISSORS":
-                    return 3;    
-            }
-
-        }
-                
-        function result (playerNum, computerNum){
-
-            console.log("playerNum" , playerNum , "computerNum", computerNum);
-            if ((playerNum*computerNum) !== 3){
-
-                switch (true) {
-
-                    case (playerNum > computerNum):
-                        return "Win";
-
-                    case (playerNum < computerNum):
-                        return "Lose";
-
-                    default:
-                        return "Tie";
-                }
-            } 
-
-            else {
-
-                switch (true) {
-
-                    case (playerNum < computerChoice):
-                        return "Win";
-
-                    case (playerNum > computerChoice):
-                        return "Lose";
-                    
-                    default:
-                        return "Tie";
-                }
-
-            }
-        }
-
-        function game (){
-
-            for (let i = 0; i < 5; i++){
-
-                let computerNum = getComputer();
-                let computerChoice =  computerChoiceToString(computerNum).toUpperCase(); //Computer String
-                let playerChoice = playerSelection().toUpperCase(); //Player String
-                let playerNum = choiceToNum(playerChoice);
-                
-                let results = result(playerNum, computerNum) 
-                if ( results == "Lose") {
-                    ++scoreComputer;
-                 }
-                 else if (results == "Win") {
-                    ++scoreComputer;
-                 }// store this in an array/ or rather keep a score instead of printing it
-
-                 console.log(results);
-
-            }
-            
-        }
-
-        let computerChoice;
-        let playerChoice;
-        let playerNum;
-        let computerNum;
-        let results;
-        let previousNumber = null;
-        let newNumber = null;
-        let scorePlayer = 0
-        let scoreComputer = 0;
-        game();
-
-        (scorePlayer > scoreComputer) ? console.log("You WIN"): console.log("You LOSE");
-
-
-    </script>
 </html>
