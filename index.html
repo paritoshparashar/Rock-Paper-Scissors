@@ -9,24 +9,30 @@
     <title>Document</title>
 </head>
 <body>
+    <h1><a href="#0">Rock Paper Scissor</a></h1>
+    <div class="score">
+        <div class="player"></div>
+        <div class="status"></div>
+        <div class="computer"></div>
+    </div>
     <div class="images">
         <div class="playerImg">
             <img id="final-image-player" src="images/rock.png" alt="">
         </div>
+        <h2 id="vs">VS</h2>
         <div class="compImg">
             <img id="final-image-computer" src="images/rock.png" alt="">
         </div>
     </div>
-
-    <div class="buttons">
-        <button onclick="makeChoice(this.value)" value="rock" id="rock">Rock</button>
-        <button onclick="makeChoice(this.value)" value="paper" id="paper">Paper</button>
-        <button onclick="makeChoice(this.value)" value="scissor" id="scissor">Scissors</button>
+    <div class="buttonAll">
+        <div class="buttons">
+            <button onclick="makeChoice(this.value)" value="rock" id="rock">Rock</button>
+            <button onclick="makeChoice(this.value)" value="paper" id="paper">Paper</button>
+            <button onclick="makeChoice(this.value)" value="scissor" id="scissor">Scissors</button>
+        </div>
+        
+            <button onclick="startGame()" id="start" class="start">Start Game</button>
     </div>
-    <div class="start">
-        <button onclick="startGame()" id="start">Start Game</button>
-    </div>
-    
 </body>
 
 </html>

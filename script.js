@@ -1,54 +1,53 @@
 function makeChoice (choice) {
-    playerChoice = choice.toUpperCase();
-    showPlayerImage(choice);
-    game();
+    
+        playerChoice = choice.toUpperCase();
+        showPlayerImage(choice);
+        ++tries;
+        game();
+    
 }
 
 
 function showPlayerImage (choice){
 
-    const imageConatiner = document.getElementById('final-image-player');
-
     switch(choice){
 
         case "rock":
-            imageConatiner.src = "images/rock.png";
+            imageConatinerleft.src = "images/rock.png";
             break;
 
         case "paper":
-            imageConatiner.src = "images/paper.png";
+            imageConatinerleft.src = "images/paper.png";
             break;
         
         case "scissor":
-            imageConatiner.src = "images/scissor.png";
+            imageConatinerleft.src = "images/scissor.png";
             break;
 
         default:
-            imageConatiner.src = "images/rock.png" 
+            imageConatinerleft.src = "images/rock.png"; 
             break;
     }
 }
 
 function showComputerImage (choice){
 
-    const imageConatiner = document.getElementById('final-image-computer');
-
     switch(choice){
 
         case "ROCK":
-            imageConatiner.src = "images/rock.png";
+            imageConatinerright.src = "images/rock.png";
             break;
 
         case "PAPER":
-            imageConatiner.src = "images/paper.png";
+            imageConatinerright.src = "images/paper.png";
             break;
         
         case "SCISSOR":
-            imageConatiner.src = "images/scissor.png";
+            imageConatinerright.src = "images/scissor.png";
             break;
 
         default:
-            imageConatiner.src = "images/rock.png" 
+            imageConatinerright.src = "images/rock.png" ;
             break;
     }
 
@@ -86,9 +85,6 @@ function computerChoiceToString (computerNum){
 
 }
 
-function playerSelection (){
-   return prompt("Enter Your Choice", "Rock");
-}
 
 function choiceToNum(playerChoice){
 
@@ -154,11 +150,25 @@ function game (){
             ++scoreComputer;
          }
          else if (results == "Win") {
-            ++scoreComputer;
+            ++scorePlayer;
          }// store this in an array/ or rather keep a score instead of printing it
 
-         console.log(results);      
-    
+         console.log(results); 
+        
+
+            
+         if (bestOf === tries) {
+            document.getElementById('rock').disabled = true;
+            document.getElementById('paper').disabled = true;
+            document.getElementById('scissor').disabled = true;
+            setTimeout(() => {
+
+                 endGame();
+                
+            }, 1000);  
+           
+        }
+       
 }
 
 function startGame (){
@@ -168,11 +178,21 @@ function startGame (){
     document.getElementById('scissor').disabled = false;
     document.getElementById('start').disabled = true;
 
-    
-
 }
 
-let cimputerCoice;
+function endGame (){
+    
+    document.getElementById('start').disabled = false;
+    imageConatinerright.src = "images/rock.png" ;
+    imageConatinerleft.src = "images/rock.png" ;
+    
+   (scorePlayer > scoreComputer) ? console.log("Player WINS"): console.log("Computer WINS");
+   tries = 0;
+    scoreComputer = 0;
+    scorePlayer = 0;
+}
+
+let computerChoice;
 let playerChoice;
 let playerNum;
 let computerNum;
@@ -181,11 +201,14 @@ let previousNumber = null;
 let newNumber = null;
 let scorePlayer = 0
 let scoreComputer = 0;
-let bestOf = 0;
+let bestOf = 5;
+let tries = 0;
+const imageConatinerleft = document.getElementById('final-image-player');
+const imageConatinerright = document.getElementById('final-image-computer');
+
 document.getElementById('rock').disabled = true;
 document.getElementById('paper').disabled = true;
 document.getElementById('scissor').disabled = true;
-
-//(scorePlayer > scoreComputer) ? console.log("You WIN"): console.log("You LOSE");
+document.getElementById('start').disabled = false;
 
 
