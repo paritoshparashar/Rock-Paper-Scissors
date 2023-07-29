@@ -148,9 +148,11 @@ function game (){
         let results = result(playerNum, computerNum) 
         if ( results == "Lose") {
             ++scoreComputer;
+            scoreComputerUI.textContent = scoreComputer;
          }
          else if (results == "Win") {
             ++scorePlayer;
+            scorePlayerUI.textContent = scorePlayer;
          }// store this in an array/ or rather keep a score instead of printing it
 
          console.log(results); 
@@ -161,32 +163,40 @@ function game (){
             document.getElementById('rock').disabled = true;
             document.getElementById('paper').disabled = true;
             document.getElementById('scissor').disabled = true;
-            setTimeout(() => {
+            
 
                  endGame();
-                
-            }, 1000);  
+             
            
         }
        
 }
 
 function startGame (){
-
+    imageConatinerright.src = "images/rock.png" ;
+    imageConatinerleft.src = "images/rock.png" ;
     document.getElementById('rock').disabled = false;
     document.getElementById('paper').disabled = false;
     document.getElementById('scissor').disabled = false;
     document.getElementById('start').disabled = true;
+    finalResultUI.textContent = ""
 
 }
 
 function endGame (){
     
     document.getElementById('start').disabled = false;
-    imageConatinerright.src = "images/rock.png" ;
-    imageConatinerleft.src = "images/rock.png" ;
     
-   (scorePlayer > scoreComputer) ? console.log("Player WINS"): console.log("Computer WINS");
+    
+   if (scorePlayer > scoreComputer) {
+    finalResultUI.textContent = "Player WINs";
+    } 
+   else if (scorePlayer < scoreComputer){(
+    finalResultUI.textContent = "Computer WINS");
+    }
+    else{
+        finalResultUI.textContent = "It's a TIE"
+    }
    tries = 0;
     scoreComputer = 0;
     scorePlayer = 0;
@@ -205,6 +215,9 @@ let bestOf = 5;
 let tries = 0;
 const imageConatinerleft = document.getElementById('final-image-player');
 const imageConatinerright = document.getElementById('final-image-computer');
+const scorePlayerUI = document.getElementById('sP');
+const scoreComputerUI = document.getElementById('sC');
+const finalResultUI = document.getElementById('rUI');
 
 document.getElementById('rock').disabled = true;
 document.getElementById('paper').disabled = true;
