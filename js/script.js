@@ -180,6 +180,8 @@ function startGame (){
     document.getElementById('scissor').disabled = false;
     document.getElementById('start').disabled = true;
     finalResultUI.textContent = ""
+    scoreComputerUI.textContent = scoreComputer;
+    scorePlayerUI.textContent = scorePlayer;
 
 }
 
@@ -197,9 +199,10 @@ function endGame (){
     else{
         finalResultUI.textContent = "It's a TIE"
     }
-   tries = 0;
+    tries = 0;
     scoreComputer = 0;
     scorePlayer = 0;
+    
 }
 
 let computerChoice;
