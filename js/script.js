@@ -58,7 +58,7 @@ function getComputer (){
 
     newNumber = Math.ceil(Math.random() * 3);
 
-    while (newNumber === previousNumber) {
+    while (newNumber === previousNumber && (previousNumber=== 1 ) ) {
         newNumber = Math.ceil(Math.random() * 3);
     }
 
