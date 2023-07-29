@@ -21,7 +21,7 @@ h1 {
     margin: 2%;
     text-transform: uppercase;
     padding: 1px;
-    font-family: 'Raleway', cursive;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 100;
     position: relative;
     background: linear-gradient(to right, black, #eee, black);
