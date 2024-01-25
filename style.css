@@ -1,6 +1,6 @@
 body{
     background:black;
-    
+    overflow: hidden;
 }
 
 .images{
@@ -9,7 +9,7 @@ body{
     margin: auto;
     gap: 50px;
     align-items: center;
-    z-index: -1;
+    z-index: -2;
     
 }
 
@@ -36,7 +36,7 @@ h1 {
     margin-top: -220px;
     height: 600px;
     background: radial-gradient(50% 50%, ellipse closest-side, #444, black);
-    z-index: -1;
+    z-index: -2;
   }
   h1 a {
     background: black;
